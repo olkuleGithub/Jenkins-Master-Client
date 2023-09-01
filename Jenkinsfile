@@ -3,6 +3,7 @@ def COLOR_MAP = [
     'FAILURE': 'danger',
     'UNSTABLE': 'danger'
 ]
+
 pipeline {
   agent {
     label 'Maven-Build-Env' // Use the Maven slave node for this pipeline
@@ -35,9 +36,9 @@ pipeline {
     }
     stage('SonarQube Inspection') {
         steps {
-            sh  """mvn sonar:sonar 
-                   -Dsonar.projectKey=maven-java-webapp \
-                   -Dsonar.host.url=http://44.204.185.147:9000 \
+            sh  """mvn sonar:sonar \
+                   -Dsonar.projectKey=Maven-JavaWebApp \
+                   -Dsonar.host.url=http://172.31.89.239:9000 \
                    -Dsonar.login=a1031615278611f523e831f32f4314682c366bbb"""
         }
     }
